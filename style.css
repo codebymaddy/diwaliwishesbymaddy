@@ -1,0 +1,1181 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #351044, #100719 65%, #05030b);
+    color: white;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#e6b85c 1px, transparent 1px);
+    background-size: 70px 70px, 110px 110px;
+    opacity: 0.3;
+    animation: twinkle 4s infinite alternate;
+}
+
+.celebration {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.small-text, .eyebrow {
+    color: #e9c477;
+    letter-spacing: 5px;
+    font-size: 12px;
+}
+
+.intro-diya {
+    font-size: 85px;
+    filter: drop-shadow(0 0 25px orange);
+    animation: glow 2s infinite alternate;
+}
+
+.intro h1 {
+    font-size: clamp(25px, 5vw, 45px);
+    color: #ffe8b0;
+}
+
+button {
+    padding: 15px 30px;
+    border: 1px solid #f4cf7a;
+    background: linear-gradient(135deg, #b36b18, #f3c76b);
+    color: #25100a;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #ffc65c;
+}
+
+.main-content {
+    display: none;
+    max-width: 750px;
+    width: 100%;
+    padding: 35px 20px;
+    animation: reveal 2s ease forwards;
+}
+
+.diyas {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    font-size: 45px;
+    margin: 30px 0;
+}
+
+.diyas span {
+    animation: glow 2s infinite alternate;
+}
+
+.heading {
+    font-size: clamp(55px, 12vw, 105px);
+    line-height: 1.05;
+    letter-spacing: 8px;
+    color: #fff1c9;
+    text-shadow: 0 0 15px #d99131, 0 0 45px #c47720;
+}
+
+.heading span {
+    background: linear-gradient(#fff4c5, #e8a83d, #fff0b5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    margin-top: 25px;
+    color: #f1d9b3;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.divider {
+    width: 100px;
+    height: 2px;
+    background: #e9bd62;
+    margin: 35px auto;
+    box-shadow: 0 0 15px gold;
+}
+
+.message {
+    color: #f8e9d7;
+    font-size: 17px;
+    line-height: 2;
+}
+
+.ending {
+    margin-top: 35px;
+    color: #ffda88;
+    font-size: 25px;
+}
+
+.footer {
+    margin-top: 45px;
+    color: #c7a8b8;
+    font-size: 20px;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 8px orange);
+        transform: scale(1);
+    }
+    to {
+        filter: drop-shadow(0 0 30px gold);
+        transform: scale(1.08);
+    }
+}
+
+@keyframes twinkle {
+    from { opacity: 0.15; }
+    to { opacity: 0.5; }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .heading {
+        letter-spacing: 4px;
+    }
+
+    .message {
+        font-size: 15px;
+    }
+
+    .diyas {
+        font-size: 35px;
+        gap: 20px;
+    }
+}
+
+/* ===== MAGICAL BACKGROUND ===== */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(circle at 15% 20%, #9d4edd22, transparent 35%),
+        radial-gradient(circle at 85% 75%, #ffb70322, transparent 35%);
+    animation: magicalBackground 8s ease-in-out infinite alternate;
+}
+
+@keyframes magicalBackground {
+    from {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+}
+
+/* ===== TWINKLING STARS ===== */
+
+.stars::before,
+.stars::after {
+    content: "✦       ✧       ✦       ✧";
+    position: absolute;
+    width: 100%;
+    color: #ffe6a3;
+    font-size: 22px;
+    letter-spacing: 35px;
+    animation: floatingStars 8s linear infinite;
+}
+
+.stars::after {
+    top: 65%;
+    animation-delay: 3s;
+    color: #fff0c2;
+}
+
+@keyframes floatingStars {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* ===== DIYA FLAME EFFECT ===== */
+
+.intro-diya {
+    animation: diyaDance 2s ease-in-out infinite alternate;
+}
+
+@keyframes diyaDance {
+    from {
+        transform: scale(1) rotate(-3deg);
+        filter: drop-shadow(0 0 12px orange);
+    }
+    to {
+        transform: scale(1.12) rotate(3deg);
+        filter: drop-shadow(0 0 35px gold);
+    }
+}
+
+/* ===== DIWALI TITLE REVEAL ===== */
+
+.heading {
+    animation: titleReveal 2s ease both;
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.9);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* ===== FLOATING DIYAS ===== */
+
+.diyas span {
+    display: inline-block;
+   
+    animation: glow 2s infinite alternate,
+           diyaFloat 3s ease-in-out infinite alternate;
+}
+
+
+.diyas span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.diyas span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes diyaFloat {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-13px);
+    }
+}
+
+/* ===== MESSAGE APPEARANCE ===== */
+
+.message {
+    animation: messageReveal 2s 0.5s both;
+}
+
+@keyframes messageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== ENDING GLOW ===== */
+
+.ending {
+    animation: endingGlow 2s infinite alternate;
+}
+
+@keyframes endingGlow {
+    from {
+        text-shadow: 0 0 5px #ffc65c;
+    }
+    to {
+        text-shadow: 0 0 25px #ffc65c, 0 0 45px orange;
+    }
+}
+
+/* ===== BUTTON MAGIC ===== */
+
+button {
+    box-shadow: 0 0 12px #e9bd6270;
+}
+
+button:hover {
+    box-shadow: 0 0 35px #ffc65c;
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===== MAGICAL CURSOR SPARKLES ===== */
+
+.cursor-sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10;
+
+    color: #ffda75;
+    font-size: 17px;
+
+    text-shadow: 0 0 10px gold,
+                 0 0 20px orange;
+
+    animation: sparkleMove 0.9s ease-out forwards;
+}
+
+@keyframes sparkleMove {
+
+    0% {
+        opacity: 1;
+        transform: scale(0.5) rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-35px) scale(1.8) rotate(90deg);
+    }
+}
+
+/* ===== GOLDEN FLOATING PARTICLES ===== */
+
+.magic-particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.magic-particle {
+    position: absolute;
+    bottom: -20px;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+    background: #ffd76a;
+
+    box-shadow: 0 0 10px gold,
+                0 0 20px orange;
+
+    animation: particleRise linear infinite;
+}
+
+@keyframes particleRise {
+
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+/* ===== DIWALI SURPRISE CARD ===== */
+
+.surprise-card {
+    max-width: 500px;
+    margin: 50px auto 20px;
+    padding: 35px 25px;
+
+    border: 1px solid #eac36e;
+    border-radius: 22px;
+
+    background: linear-gradient(
+        145deg,
+        #3c194d,
+        #21102f
+    );
+
+    box-shadow:
+        0 0 15px #e8b64d55,
+        inset 0 0 20px #e8b64d15;
+
+    animation: cardGlow 3s infinite alternate;
+}
+
+@keyframes cardGlow {
+    from {
+        box-shadow: 0 0 10px #e8b64d55;
+    }
+
+    to {
+        box-shadow: 0 0 30px #e8b64daa;
+    }
+}
+
+.card-icon {
+    font-size: 55px;
+    animation: cardFloat 2s infinite alternate;
+}
+
+@keyframes cardFloat {
+    to {
+        transform: translateY(-10px) rotate(8deg);
+    }
+}
+
+.surprise-card h2 {
+    color: #ffdf91;
+    margin: 15px 0;
+}
+
+.surprise-card > p {
+    color: #e8d4ee;
+    margin-bottom: 22px;
+}
+
+.hidden-message {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+
+    border-top: 1px solid #d8ac58;
+
+    animation: reveal 1.5s ease forwards;
+}
+
+.hidden-message h3 {
+    color: #ffda88;
+    margin-bottom: 15px;
+}
+
+.hidden-message p {
+    color: #fff0dc;
+    line-height: 1.9;
+}
+
+.card-hearts {
+    margin-top: 20px;
+    font-size: 25px;
+    animation: heartFloat 2s infinite alternate;
+}
+
+@keyframes heartFloat {
+    to {
+        transform: translateY(-7px);
+    }
+}
+
+
+
+/* ===== ROYAL DIWALI MANDALA ===== */
+
+.rangoli-section {
+    margin: 90px auto 60px;
+    text-align: center;
+}
+
+.rangoli-title {
+    color: #ffdc91;
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 45px;
+    text-shadow: 0 0 15px gold;
+}
+
+.rangoli {
+    position: relative;
+    width: 310px;
+    height: 310px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    filter: drop-shadow(0 0 18px #ffae4260);
+}
+
+/* DECORATIVE RINGS */
+
+.mandala {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.outer-ring {
+    width: 300px;
+    height: 300px;
+    border: 3px dotted #ffd166;
+    box-shadow: 0 0 15px #ffbd45;
+    animation: outerSpin 35s linear infinite;
+}
+
+.middle-ring {
+    width: 245px;
+    height: 245px;
+    border: 3px dashed #ff70a6;
+    box-shadow: 0 0 12px #ff70a6;
+    animation: innerSpin 25s linear infinite;
+}
+
+.inner-ring {
+    width: 185px;
+    height: 185px;
+    border: 3px dotted #70e1d1;
+    box-shadow: 0 0 15px #70e1d1;
+    animation: outerSpin 18s linear infinite;
+}
+
+/* FLOWER PETALS */
+
+.petals {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: innerSpin 30s linear infinite;
+}
+
+.petals span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 48px;
+    height: 95px;
+
+    margin-left: -24px;
+    margin-top: -47px;
+
+    border-radius: 50% 50% 35% 35%;
+
+    background: linear-gradient(
+        to bottom,
+        #ffdc76,
+        #ff8b50,
+        #e83e82
+    );
+
+    transform-origin: center center;
+    box-shadow: 0 0 14px #ff8c42;
+}
+
+.petals span:nth-child(1)  { transform: rotate(0deg) translateY(-54px); }
+.petals span:nth-child(2)  { transform: rotate(30deg) translateY(-54px); }
+.petals span:nth-child(3)  { transform: rotate(60deg) translateY(-54px); }
+.petals span:nth-child(4)  { transform: rotate(90deg) translateY(-54px); }
+.petals span:nth-child(5)  { transform: rotate(120deg) translateY(-54px); }
+.petals span:nth-child(6)  { transform: rotate(150deg) translateY(-54px); }
+.petals span:nth-child(7)  { transform: rotate(180deg) translateY(-54px); }
+.petals span:nth-child(8)  { transform: rotate(210deg) translateY(-54px); }
+.petals span:nth-child(9)  { transform: rotate(240deg) translateY(-54px); }
+.petals span:nth-child(10) { transform: rotate(270deg) translateY(-54px); }
+.petals span:nth-child(11) { transform: rotate(300deg) translateY(-54px); }
+.petals span:nth-child(12) { transform: rotate(330deg) translateY(-54px); }
+
+/* CENTRAL DIYA */
+
+.rangoli-center {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        #ffe89a,
+        #ffad42,
+        #e75c39
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 4px solid #fff0a6;
+
+    box-shadow:
+        0 0 15px gold,
+        0 0 40px orange;
+
+    z-index: 3;
+}
+
+.rangoli-center span {
+    font-size: 43px;
+    animation: diyaGlow 2s infinite alternate;
+}
+
+.center-glow {
+    position: absolute;
+    inset: -15px;
+    border: 2px solid #ffe28a;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+/* FOUR MINI DIYAS */
+
+.mini-diya {
+    position: absolute;
+    z-index: 4;
+    font-size: 27px;
+    filter: drop-shadow(0 0 12px orange);
+    animation: diyaGlow 2s infinite alternate;
+}
+
+.diya-one {
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.diya-two {
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.diya-three {
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.diya-four {
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ANIMATIONS */
+
+@keyframes outerSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes innerSpin {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes diyaGlow {
+    from {
+        filter: drop-shadow(0 0 5px orange);
+    }
+    to {
+        filter: drop-shadow(0 0 22px gold);
+    }
+}
+
+.rangoli-message {
+    color: #ffe1a8;
+    margin-top: 45px;
+    font-size: 17px;
+    text-shadow: 0 0 12px #ffb347;
+}
+
+/* MOBILE */
+
+@media (max-width: 400px) {
+    .rangoli {
+        transform: scale(0.85);
+        transform-origin: center;
+    }
+
+    .rangoli-title {
+        letter-spacing: 2px;
+    }
+}
+
+/* ===== GRAND FINALE BUTTON ===== */
+
+.finale-start {
+    margin: 65px auto 45px;
+    text-align: center;
+}
+
+.finale-start p {
+    color: #ffda88;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 22px;
+}
+
+#finaleBtn {
+    padding: 17px 35px;
+    background: linear-gradient(135deg, #e7a83c, #fff0b5, #d78a27);
+    border: 1px solid #ffe6a1;
+    box-shadow: 0 0 25px #ffc65c80;
+}
+
+/* ===== FULL SCREEN FINALE ===== */
+
+.finale-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+    text-align: center;
+    overflow-y: auto;
+
+    background:
+        radial-gradient(circle at center, #54215e, transparent 55%),
+        linear-gradient(135deg, #10051c, #250c32, #090311);
+
+    animation: finaleReveal 1.2s ease forwards;
+}
+
+.finale-screen.active {
+    display: flex;
+}
+
+@keyframes finaleReveal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.finale-stars {
+    color: #ffdc83;
+    font-size: 30px;
+    letter-spacing: 8px;
+    animation: starPulse 2s infinite alternate;
+}
+
+@keyframes starPulse {
+    from {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+        text-shadow: 0 0 25px gold;
+    }
+}
+
+.finale-small {
+    color: #eac77f;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-top: 35px;
+}
+
+.finale-diya {
+    font-size: 75px;
+    margin: 20px 0;
+    animation: diyaDance 2s infinite alternate;
+    filter: drop-shadow(0 0 30px orange);
+}
+
+.finale-heading {
+    font-size: clamp(55px, 12vw, 110px);
+    line-height: 1.1;
+    letter-spacing: 6px;
+    color: #fff0bd;
+
+    text-shadow:
+        0 0 15px #ffbd4b,
+        0 0 40px #f28c28;
+
+    animation: titleReveal 2s ease both;
+}
+
+.finale-heading span {
+    display: block;
+
+    background: linear-gradient(
+        #fff5ce,
+        #ffc04e,
+        #fff0bd
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.finale-wish {
+    max-width: 550px;
+    margin-top: 30px;
+    color: #f8e6d2;
+    font-size: 17px;
+    line-height: 1.9;
+    animation: messageReveal 2s 0.5s both;
+}
+
+.finale-decoration {
+    font-size: 38px;
+    margin: 30px 0;
+    animation: endingGlow 2s infinite alternate;
+}
+
+.finale-screen h2 {
+    color: #ffda88;
+    margin-bottom: 30px;
+    font-size: 23px;
+}
+
+#closeFinale {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+    .finale-heading {
+        letter-spacing: 3px;
+    }
+
+    .finale-wish {
+        font-size: 15px;
+    }
+
+    .finale-small {
+        letter-spacing: 2px;
+    }
+}
+
+/* ===== COMPACT WEBSITE LAYOUT ===== */
+
+.main-content {
+    padding: 20px 15px;
+}
+
+/* Reduce spacing around sections */
+
+.diyas {
+    margin: 18px 0;
+}
+
+.subtitle {
+    margin-top: 15px;
+}
+
+.divider {
+    margin: 22px auto;
+}
+
+.message {
+    max-width: 550px;
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.ending {
+    margin-top: 22px;
+}
+
+/* Compact surprise card */
+
+.surprise-card {
+    margin: 30px auto 15px;
+    padding: 25px 20px;
+}
+
+/* Compact rangoli */
+
+.rangoli-section {
+    margin: 45px auto 25px;
+}
+
+.rangoli-title {
+    margin-bottom: 20px;
+}
+
+.rangoli {
+    transform: scale(0.85);
+    transform-origin: center;
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+.rangoli-message {
+    margin-top: 15px;
+}
+
+/* Compact finale */
+
+.finale-start {
+    margin: 35px auto 25px;
+}
+
+.footer {
+    margin-top: 25px;
+    padding-bottom: 15px;
+}
+
+/* Smaller screens */
+
+@media (max-width: 600px) {
+    .message {
+        font-size: 15px;
+    }
+
+    .main-content {
+        padding: 15px 12px;
+    }
+}
+
+/* ===== EXTRA COMPACT LAYOUT ===== */
+
+.main-content {
+    max-width: 650px;
+    padding: 10px 15px;
+}
+
+.eyebrow {
+    font-size: 10px;
+}
+
+.diyas {
+    font-size: 32px;
+    gap: 22px;
+    margin: 10px 0;
+}
+
+.heading {
+    font-size: clamp(45px, 9vw, 75px);
+    letter-spacing: 5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.divider {
+    margin: 15px auto;
+    width: 70px;
+}
+
+.message {
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.ending {
+    font-size: 20px;
+    margin-top: 18px;
+}
+
+/* SURPRISE CARD */
+
+.surprise-card {
+    max-width: 420px;
+    padding: 18px 15px;
+    margin: 22px auto 10px;
+}
+
+.card-icon {
+    font-size: 38px;
+}
+
+.surprise-card h2 {
+    font-size: 19px;
+    margin: 8px 0;
+}
+
+.surprise-card > p {
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.hidden-message {
+    margin-top: 15px;
+    padding: 12px;
+}
+
+.hidden-message p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* RANGOLI */
+
+.rangoli-section {
+    margin: 25px auto 15px;
+}
+
+.rangoli-title {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.rangoli {
+    transform: scale(0.65);
+    margin-top: -45px;
+    margin-bottom: -45px;
+}
+
+.rangoli-message {
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* FINALE BUTTON */
+
+.finale-start {
+    margin: 25px auto 15px;
+}
+
+.finale-start p {
+    font-size: 10px;
+}
+
+#finaleBtn {
+    padding: 12px 23px;
+    font-size: 13px;
+}
+
+/* FOOTER */
+
+.footer {
+    margin-top: 15px;
+    font-size: 11px;
+    padding-bottom: 8px;
+}
+
+/* GRAND FINALE - BIGGER TEXT */
+
+.finale-screen .finale-small {
+    font-size: 20px !important;
+}
+
+.finale-screen .finale-diya {
+    font-size: 85px !important;
+}
+
+.finale-screen .finale-heading {
+    font-size: clamp(75px, 9vw, 120px) !important;
+    line-height: 1.1;
+}
+
+.finale-screen .finale-wish {
+    font-size: 27px !important;
+    line-height: 1.7;
+    max-width: 650px;
+}
+
+.finale-screen .finale-decoration {
+    font-size: 48px !important;
+}
+
+.finale-screen h2 {
+    font-size: 38px !important;
+}
+
+.finale-screen .finale-stars {
+    font-size: 30px !important;
+}
+/* Improve main page readability */
+
+.subtitle {
+    font-size: 19px;
+}
+
+.message {
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+.ending {
+    font-size: 26px;
+}
+
+.surprise-card p {
+    font-size: 17px;
+}
+
+.surprise-card h2 {
+    font-size: 25px;
+}
+
+.rangoli-message {
+    font-size: 17px;
+}
+/* Footer - Made with Love */
+
+.footer {
+    font-size: 26px !important;
+    margin-top: 35px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px #ffb347;
+}
